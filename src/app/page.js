@@ -4,21 +4,28 @@ import { Button, Input } from "antd";
 import { useState } from "react";
 
 export default function Home() {
-  // const tweetId = "1819756198666576067";
   const [tweetId, setTweetId] = useState(null);
+  const [inputValue, setInputValue] = useState("");
+
   const onTweetId = () => {
-    setTweetId("1819756198666576067");
+    setTweetId(inputValue);
   };
+
   return (
-    <main className="flex min-h-screen bg-white flex-col items-center justify-between py-10">
+    <div className="flex min-h-screen bg-white flex-col items-center py-10">
       <div className="flex">
-        <Input type="text" placeholder="enter tweet id" />
-        <Button onClick={() => onTweetId()} type="primary">
-          Test
+        <Input
+          type="text"
+          placeholder="Enter tweet ID"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <Button onClick={onTweetId} type="primary">
+          Submit
         </Button>
       </div>
 
-      <TweetComponent tweetId={tweetId} />
-    </main>
+      <div>{tweetId && <TweetComponent tweetId={tweetId} />}</div>
+    </div>
   );
 }
