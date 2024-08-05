@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "antd": "^5.20.0",
     "autoprefixer": "10.4.20",
     "next": "14.2.5",
     "postcss": "8.4.40",
