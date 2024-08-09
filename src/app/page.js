@@ -13,17 +13,21 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen bg-white flex-col items-center py-10">
-      <div className="flex">
+      <div className="flex justify-between w-[340px]">
         <Input
+          style={{ borderRadius: 0 }}
           type="text"
           placeholder="Enter tweet ID"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
+          allowClear
+          onPressEnter={onTweetId}
         />
-        <Button onClick={onTweetId} type="primary">
+        <Button style={{ borderRadius: 0 }} onClick={onTweetId} type="primary">
           Submit
         </Button>
       </div>
+      <p className="font-extralight text-xs">Example : 1820185437157335272 </p>
 
       <div>{tweetId && <TweetComponent tweetId={tweetId} />}</div>
     </div>
